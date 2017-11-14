@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/video_play.css" />
+	</head>
+	<body>
+		<div>
+			<video autoplay controls  poster="img/poster.jpg" id="video" class="center">
+				<source src="media/oceans.mp4" type="video/mp4"></source>
+				<!--默认中文字幕-->
+				<track src="media/video_ch.vtt" srclang="zh" kind="subtitles" label="中文" default />
+				<track src="media/video_en.vtt" srclang="en" kind="subtitles" label="English" />
+			</video>
+			<!--视频控制栏-->
+			<div class="video_control green center">
+				<div class="control_icon stop"></div>
+				<div class="control_icon_advance slowDown"></div>
+				<div class="control_icon playing"></div>
+				<!--<div class="control_icon playing pause"></div>-->
+				<div class="control_icon_advance speedUp"></div>
+				<div class="control_icon sound"></div>
+				<!--<div class="control_icon sound mute"></div>-->
+				<div class="control_icon fullScreen"></div>
+			</div>
+		</div>
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js" ></script>
+	<script type="text/javascript" src="js/video_play.js" ></script>
+	</body>
+</html>
+ 

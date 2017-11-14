@@ -1,0 +1,98 @@
+html,body{
+	width: 100%;
+	height: 100%;
+}
+html,body{
+	padding: 0px;
+	margin: 0px;
+}
+div{
+	border: red solid 1px;
+	display: inline-block;
+}
+video{
+	margin: 0px;
+	padding: 0px;
+	
+}
+video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+
+/*去除视频和div的空隙*/
+.center {  
+   display: -webkit-flex;  
+  -webkit-justify-content: center;  
+  -webkit-align-items: center;  
+ } 
+/*居中无效果*/
+.center_auto{
+	margin: 0 auto;
+}
+.green{
+	background: yellowgreen;
+}
+/*控制面板*/
+.video_control{
+	width: 100%;
+	height: 33px;
+}
+.control_icon{
+	background: url(../img/playerSprite.png);
+	height: 33px;
+	width: 33px;
+}
+.playing{
+	
+	background-position-x: -220px;
+}
+.playing:hover{
+	background-position-x: -276px;
+}
+.pause{
+	background-position-x: -514px;
+}
+.pause:hover{
+	background-position-x: -570px;
+}
+.stop{
+	background-position-x: -332px;
+}
+.stop:hover{
+	background-position-x: -387px;
+}
+.fullScreen{
+	background-position-x: -705px;
+}
+.fullScreen:hover{
+	background-position-x: -763px;
+}
+.sound{
+	background-position-x: 0px;
+}
+.sound:hover{
+	background-position-x:-55px;
+}
+.mute{
+	background-position-x:-110px;
+}
+.mute:hover{
+	background-position-x:-165px;
+}
+.control_icon_advance{
+	background: url(../img/playerSprite2.png);
+	height: 33px;
+	width: 33px;
+}
+.speedUp{
+	background-position-x: -149px;
+}
+.speedUp:hover{
+	background-position-x: -234px;
+}
+.slowDown{
+	background-position-x: -65px;
+}
+.slowDown:hover{
+	background-position-x: -319px;
+}
