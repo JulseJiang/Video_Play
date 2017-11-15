@@ -9,25 +9,44 @@
 //  6.音量调整；
 //  7.全屏播放；toFullScreen()，toDefaultScreen()--ok
 //  8.播放进度和缓存进度显示。
+//拓展功能1:实现上一首下一首切换--ok
 //----------------------------------------------
 
 $(function(){
 	initData();
+	initVideo();//初始化视频
 	bindEvent();
+	toDefaultScreen();//初始化视频大小
 });
 function initData(){
+	video_json =[{'src':'media/oceans.mp4','poster':'img/poster1.jpg'},
+				{'src':'media/林宥嘉 - 全世界谁倾听你.mp4','poster':'img/poster3.png'},
+				{'src':'media/林忆莲 - 分分钟需要你.mp4','poster':'img/poster2.png'}];
 	$video = $('video');//视频
 	video = $video.get(0);//视频js对象
+	video_index=0;
 	$sound = $('.sound');//声音图标
 	$stop = $('.stop');//停止视频
 	$playing = $('.playing');//播放状态
 	$fullScreen = $('.fullScreen');//全屏
+	$speedUp = $('.speedUp');//加速播放
+	$slowDown = $('.slowDown');//慢速播放
 	$video_control = $('.video_control');//控制台
+	$pre = $('.pre');//上一首
+	$next = $('.next');//下一首
 	fullScreenFlag = false;
 	screen_width=$(this).width();//全屏宽
 	screen_height = $(this).height()-63;//全屏高
 	screen_orient_width=900;
 	screen_orient_height=400;
+	$progress_div = $('.progress');//容器
+	$progress = $('progress');//进度条
+}
+function initVideo(){
+	$video.attr({
+		'src':video_json[video_index].src,
+		'poster':video_json[video_index].poster
+	});
 }
 function bindEvent(){
 	$video.bind('click',function(){//绑定点击事件：点击切换播放状态
@@ -69,6 +88,20 @@ function bindEvent(){
 		}else{
 			toDefaultScreen();
 		}
+	});
+	$pre.bind('click',function(){
+		video_index=(--video_index+video_json.length)%video_json.length;
+		console.log('video_index'+video_index);
+		initVideo();
+	});
+	$next.bind('click',function(){
+		video_index=(++video_index)%video_json.length;
+		console.log('video_index'+video_index);
+		initVideo();
+	});
+	$progress_div.bind('click',function(e){
+		console.log('点击x：'+e.offsetX+' '+$progress.width());
+		$progress.val((e.offsetX*1.0)/$progress.width());
 	});
 }
 /*切换播放状态--点击图标，点击视频时触发*/
@@ -119,4 +152,5 @@ function toDefaultScreen(){
 	});
 	$('body,html').removeClass('black');
 }
+
 
