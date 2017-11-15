@@ -7,35 +7,47 @@ html,body{
 	margin: 0px;
 }
 div{
-	border: red solid 1px;
+	/*border: red solid 1px;*/
 	display: inline-block;
 }
 video{
-	margin: 0px;
-	padding: 0px;
-	
+	/*margin: 0px;
+	padding: 0px;*/
 }
+/*去除视频控制栏*/
 video::-webkit-media-controls-enclosure {
     display: none !important;
 }
-
-/*去除视频和div的空隙*/
+/*.big_div{
+	width: 100%;
+	height: 100%;
+}*/
+/*去除视频和div的空隙,控制台居中*/
 .center {  
    display: -webkit-flex;  
   -webkit-justify-content: center;  
   -webkit-align-items: center;  
  } 
 /*居中无效果*/
-.center_auto{
+/*.center_auto{
 	margin: 0 auto;
+}*/
+.black{
+	background: #15150C;
 }
 .green{
 	background: yellowgreen;
 }
+/*.pull_bottom{
+	position: relative;
+}*/
 /*控制面板*/
 .video_control{
 	width: 100%;
 	height: 33px;
+}
+.scale{
+	transform: scale(2,2);
 }
 .control_icon{
 	background: url(../img/playerSprite.png);

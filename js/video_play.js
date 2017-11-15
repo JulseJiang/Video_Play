@@ -7,13 +7,12 @@
 //  4.视频时长及已播放时长显示；
 //  5.静音；muteVideo()--ok
 //  6.音量调整；
-//  7.全屏播放；controlFullScreen()
+//  7.全屏播放；toFullScreen()，toDefaultScreen()--ok
 //  8.播放进度和缓存进度显示。
 //----------------------------------------------
 
 $(function(){
 	initData();
-//	alert('hello');
 	bindEvent();
 });
 function initData(){
@@ -22,6 +21,13 @@ function initData(){
 	$sound = $('.sound');//声音图标
 	$stop = $('.stop');//停止视频
 	$playing = $('.playing');//播放状态
+	$fullScreen = $('.fullScreen');//全屏
+	$video_control = $('.video_control');//控制台
+	fullScreenFlag = false;
+	screen_width=$(this).width();//全屏宽
+	screen_height = $(this).height()-63;//全屏高
+	screen_orient_width=900;
+	screen_orient_height=400;
 }
 function bindEvent(){
 	$video.bind('click',function(){//绑定点击事件：点击切换播放状态
@@ -50,12 +56,19 @@ function bindEvent(){
 	$stop.bind('click',function(){
 		video.pause();
 		video.currentTime=0;
-		$video.attr({//视频停止时黑屏添加海报或广告--todo
-			
-		});
+//		$video.attr({//视频停止时黑屏添加海报或广告--todo
+//			
+//		});
 	});
 	$sound.bind('click',function(){
 		changeSoundState();
+	});
+	$fullScreen.bind('click',function(){
+		if(!fullScreenFlag){
+			toFullScreen();
+		}else{
+			toDefaultScreen();
+		}
 	});
 }
 /*切换播放状态--点击图标，点击视频时触发*/
@@ -83,3 +96,27 @@ function stopVideo(){
 	video.pause();
 	video.currentTime=0;
 }
+/*全屏*/
+function toFullScreen(){
+	screen_width=$(this).width();
+	screen_height = $(this).height()-63;
+	console.log('fullScreen：全屏'+screen_width+" "+screen_height);
+	fullScreenFlag=true;
+	$video.attr({
+		'width':screen_width+'px',
+		'height':screen_height+'px'
+//		'width':'100%',
+//		'height':'100%'
+	});
+	$('body,html').addClass('black');
+}	
+/*退出全屏*/
+function toDefaultScreen(){
+	fullScreenFlag=false;
+	$video.attr({
+		'width':screen_orient_width+'px',
+		'height':screen_orient_height+'px'
+	});
+	$('body,html').removeClass('black');
+}
+
