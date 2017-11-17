@@ -36,6 +36,8 @@ a{
 	height: 10px;
 	margin: 0;
 	opacity: 0.5;
+	background-color: red;
+	left: 0px;
 }
 #progress_video_save{
 	position: absolute;
@@ -46,6 +48,7 @@ a{
 }
 .progress_video{
 	height: 33px;
+	margin: 0;
 }
 .video_content{
 	/*width: 900px;
