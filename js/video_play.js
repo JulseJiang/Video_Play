@@ -9,7 +9,7 @@
 //  6.音量调整；--ok
 //  7.全屏播放；toFullScreen()，toDefaultScreen()--ok
 //  8.播放进度  chrome不支持本地视频设置时间，ie支持。--ok
-//  9.缓存进度显示。--ok
+//  9.缓存进度显示。
 //拓展功能1:实现上一首下一首切换--ok
 //拓展功能2：双击全屏切换,单击播放暂停--ok
 //----------------------------------------------
@@ -45,7 +45,7 @@ function initData(){
 	$progress_sound = $('#progress_sound');//音频进度条
 	$progress_video_div = $('.progress_video');//视频容器
 	$progress_video = $('#progress_video');//视频进度条
-	$progress_video_buffer = $('#progress_video_buffer');//缓存进度条
+	$progress_video_save = $('#progress_video_save');//缓存进度条
 	$currentTime = $('.currentTime');//视频当前时间
 	$duration = $('.duration');//视频总时长
 	click_number=0;//记录点击次数
@@ -66,17 +66,10 @@ function bindEvent(){
 		$progress_video.attr({
 			'max':video.duration
 		});
-		$progress_video_buffer.attr({
-			'max':video.duration
-		});
+//		$progress_video_save.attr({
+//			'max':video.duration
+//		});
 		$duration.text(timeStr(video.duration));//设置标签显示的时间
-	});
-	$video.bind('progress',function(){//视频加载中
-		console.log('视频加载中');
-		if(video.buffered.length>0){
-			console.log('video.buffered.end(0)'+video.buffered.end(0));
-			$progress_video_buffer.val(video.buffered.end(0));
-		}
 	});
 	$video.bind('canplay',function(){
 		console.log('canplay：视频准备就绪');
@@ -238,7 +231,7 @@ function toFullScreen(){
 	$progress_video.css({
 		'width':screen_width+'px'
 	});
-	$progress_video_buffer.css({
+	$progress_video_save.css({
 		'width':screen_width+'px'
 	});
 }	
@@ -249,7 +242,7 @@ function toDefaultScreen(){
 		'width':screen_orient_width+'px',
 		'height':screen_orient_height+'px'
 	});
-	$progress_video_buffer.css({
+	$progress_video_save.css({
 		'width':screen_orient_width+'px'
 	});
 	$progress_video.css({

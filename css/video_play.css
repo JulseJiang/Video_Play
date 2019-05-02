@@ -36,14 +36,15 @@ a{
 	height: 10px;
 	margin: 0;
 	opacity: 0.5;
-	background-color: red;/*原始为蓝色，设置其他颜色之后为绿色*/
+	background-color: red;
 	left: 0px;
 }
-#progress_video_buffer{
+#progress_video_save{
 	position: absolute;
 	height: 10px;
 	margin: 0;
-	background-color: blue;/*原始为蓝色，设置其他颜色之后为绿色*/
+	background-color: grey;
+    color: grey; /*IE10*/
 }
 .progress_video{
 	height: 33px;
