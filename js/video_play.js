@@ -21,9 +21,9 @@ $(function(){
 	toDefaultScreen();//初始化视频大小
 });
 function initData(){
-	video_json =[{'src':'media/oceans.mp4','poster':'img/poster1.jpg'},
-				{'src':'media/林宥嘉 - 全世界谁倾听你.mp4','poster':'img/poster3.png'},
-				{'src':'media/林忆莲 - 分分钟需要你.mp4','poster':'img/poster2.png'}];
+	video_json =[{'src':'http://ozjob9w4u.bkt.clouddn.com/oceans.mp4','poster':'img/poster1.jpg'},
+				{'src':'http://ozjob9w4u.bkt.clouddn.com/%E6%9E%97%E5%AE%A5%E5%98%89%20-%20%E5%85%A8%E4%B8%96%E7%95%8C%E8%B0%81%E5%80%BE%E5%90%AC%E4%BD%A0.mp4','poster':'img/poster3.png'},
+				{'src':'http://ozjob9w4u.bkt.clouddn.com/%E6%9E%97%E5%BF%86%E8%8E%B2%20-%20%E5%88%86%E5%88%86%E9%92%9F%E9%9C%80%E8%A6%81%E4%BD%A0.mp4','poster':'img/poster2.png'}];
 	$video = $('video');//视频
 	video = $video.get(0);//视频js对象
 	video_index=0;
